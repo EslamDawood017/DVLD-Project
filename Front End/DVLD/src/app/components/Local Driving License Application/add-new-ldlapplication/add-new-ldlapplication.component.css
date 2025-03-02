@@ -1,0 +1,99 @@
+/* Card Header Gradient */
+.bg-gradient-primary {
+  background: linear-gradient(45deg, #388da8, #00bcd4);
+}
+.container{
+  max-width: 800px !important;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 150px;
+}
+
+.card-header {
+  padding: 1.5rem;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* Input Group Styling */
+.input-group {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.input-group .form-control {
+  border-right: none;
+}
+
+.input-group .btn {
+  border-left: none;
+  transition: background-color 0.3s ease;
+}
+
+.input-group .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Alert Styling */
+.alert {
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.alert-success {
+  background-color: #e8f5e9;
+  border-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.alert-danger {
+  background-color: #ffebee;
+  border-color: #ffcdd2;
+  color: #c62828;
+}
+
+/* Form Select Styling */
+.form-select {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+/* Submit Button Styling */
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .input-group .btn {
+    font-size: 0.9rem;
+  }
+
+  .form-select {
+    font-size: 0.9rem;
+  }
+
+  .btn-success {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+}

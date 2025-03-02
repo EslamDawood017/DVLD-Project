@@ -1,0 +1,67 @@
+.card{
+    margin-top: 150px;
+}
+/* Full-screen background */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('/assets/img/hero-bg-light.webp') no-repeat center center;
+    background-size: cover; /* Make the image cover the entire screen */
+    background-position: center;
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+  }
+  img{
+    opacity: .1;
+  }
+  /* Login card styles */
+  .login-card {
+    width: 600px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 1 !important;
+  }
+  
+  /* Header styling */
+  .login-header {
+    background:#388da8;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #9bccff;
+  }
+  
+  /* Input fields */
+  .input-group-text {
+    background: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .form-control {
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Submit Button */
+  .btn-primary {
+    background: #007bff;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background: #0056b3;
+  }
+  

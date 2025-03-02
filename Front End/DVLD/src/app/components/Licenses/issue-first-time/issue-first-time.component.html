@@ -1,0 +1,83 @@
+<div class="vision-test-container p-4 bg-white rounded-4 shadow-lg">
+    <!-- Header -->
+    <div class="header d-flex align-items-center mb-4">
+      <h2 class="title mb-0 ">
+       Issue Driver License For First Time
+      </h2>
+    </div>
+  
+    <!-- Driving License Application Info -->
+    <div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-id-card me-2"></i>Driving License Application Info
+      </h5>
+      <div class="row">
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>D.L App ID:</strong> <span class="text-dark"> {{this.localDrivingLicenseApp.localDrivingLicenseApplicationID}}</span>
+        </div>
+        
+        <div class="col-8 mb-2">
+          <strong class="text-muted"><i class="fas fa-car me-2"></i>Applied For License:</strong> <span class="text-dark"> {{this.localDrivingLicenseApp.className}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-check-circle me-2"></i>Passed Tests:</strong> <span class="text-dark"> {{PassedTest}}/3</span>
+        </div>  
+      </div>
+    </div>
+  
+    <!-- Application Basic Info -->
+    <div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-file-alt me-2"></i>Application Basic Info
+      </h5>
+      <div class="row">
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>ID:</strong> <span class="text-dark"> {{this.BaseApplication.applicationID}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-calendar-day me-2"></i>Date:</strong> <span class="text-dark"> {{this.BaseApplication.applicationDate | date : 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-tag me-2"></i>Status:</strong> <span >  {{this.localDrivingLicenseApp.status}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-calendar-check me-2"></i>Status Date:</strong> <span class="text-dark"> {{this.BaseApplication.lastStatusDate | date : 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-coins me-2"></i>Fees:</strong> <span class="text-dark"> {{this.BaseApplication.paidFees}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-user me-2"></i>Created By:</strong> <span > {{this.BaseApplication.userName}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-tasks me-2"></i>Type:</strong> <span class="text-dark"> {{BaseApplication.applicationTypeTitle}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-user-tie me-2"></i>Applicant:</strong> <span class="text-dark"> {{this.localDrivingLicenseApp.fullName}}</span>
+          
+        </div>
+      </div>
+    </div>
+
+    
+  
+    <!-- Appointments Table -->
+    <div class="appointments-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-calendar-alt me-2"></i> Note:
+      </h5>
+      <textarea name="Note" [(ngModel)]="this.Note" class="col-12 mb-2 p-4" id=""></textarea>
+      
+    </div>
+  
+    <!-- Footer -->
+    <div class="footer d-flex justify-content-end align-items-center mt-4">
+      
+      <button class="btn btn-secondary" (click)="Close()">
+        <i class="fas fa-times me-2 "></i>Close
+      </button>
+      <button class="btn Issue " (click)="IssueFirstTime()" >
+        <i class="fas fa-check-circle me-2"></i>Issue
+      </button>
+    </div>
+  </div>

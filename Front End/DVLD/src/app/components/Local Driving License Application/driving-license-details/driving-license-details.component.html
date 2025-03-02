@@ -1,0 +1,49 @@
+<!-- local-driving-license.component.html -->
+<div class="container card shadow p-4custom-card">
+    <!-- Header -->
+    <div class="text-center mb-4">
+      <h2 class="text-primary fw-bold display-5">Driving License Application Details</h2>
+      <p class="text-muted">View and manage application details</p>
+    </div>
+  
+    <!-- Application Details -->
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-6">
+        <div class="detail-item mb-3 p-3 rounded">
+          <p class="mb-1 text-secondary"><strong>Application ID:</strong></p>
+          <p class="mb-0 text-dark fs-6">{{ localDrivingLicenseApp.localDrivingLicenseApplicationID }}</p>
+        </div>
+        <div class="detail-item mb-3 p-3 rounded">
+          <p class="mb-1 text-secondary"><strong>Class Name:</strong></p>
+          <p class="mb-0 text-dark fs-6"><i class="fa-solid fa-car text-primary me-2"></i>{{ localDrivingLicenseApp.className }}</p>
+        </div>
+        <div class="detail-item mb-3 p-3 rounded">
+          <p class="mb-1 text-secondary"><strong>National No:</strong></p>
+          <p class="mb-0 text-dark fs-6">{{ localDrivingLicenseApp.nationalNo }}</p>
+        </div>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="col-md-6">
+        <div class="detail-item mb-3 p-3 rounded">
+          <p class="mb-1 text-secondary"><strong>Full Name:</strong></p>
+          <p class="mb-0 text-dark fs-6">{{ localDrivingLicenseApp.fullName }}</p>
+        </div>
+        <div class="detail-item mb-3 p-3 rounded">
+          <p class="mb-1 text-secondary"><strong>Application Date:</strong></p>
+          <p class="mb-0 text-dark fs-6"><i class="fa-solid fa-calendar text-primary me-2"></i>{{ localDrivingLicenseApp.applicationDate | date: 'medium' }}</p>
+        </div>
+        <div class="detail-item mb-3 p-3 rounded">
+          <p class="mb-1 text-secondary"><strong>Passed Tests:</strong></p>
+          <p class="mb-0 text-dark fs-6"><i class="fa-solid fa-check-circle text-primary me-2"></i>{{ localDrivingLicenseApp.passedTestCount }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Status Section -->
+    <div class="mt-4 text-center">
+      <p class="mb-1 text-secondary"><strong>Status:</strong></p>
+      <span class="badge bg-primary fs-6 p-2">{{ localDrivingLicenseApp.status }}</span>
+    </div>
+  </div>

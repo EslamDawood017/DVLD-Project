@@ -1,0 +1,104 @@
+<div class="container mt-4">
+  <div class="card subContainer shadow-lg">
+    <!-- Card Header -->
+    <div class="card-header  text-white text-center">
+      <h4 class="mb-0">Add New User</h4>
+    </div>
+
+    <!-- Card Body -->
+    <div class="card-body p-4">
+      <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+        <!-- Username -->
+        <div class="mb-4">
+          <label for="userName" class="form-label fw-bold">Username</label>
+          <input
+            type="text"
+            id="userName"
+            formControlName="userName"
+            class="form-control form-control-lg"
+            placeholder="Enter username"
+          />
+          <div *ngIf="usernameExists" class="text-danger small mt-2">
+            <i class="fas fa-exclamation-circle me-1"></i>This username is already taken. Please choose another.
+          </div>
+          <div *ngIf="addUserForm.get('userName')?.invalid && addUserForm.get('userName')?.touched" class="text-danger small mt-2">
+            <i class="fas fa-exclamation-circle me-1"></i>Username is required.
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+          <label for="password" class="form-label fw-bold">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control form-control-lg"
+            placeholder="Enter password"
+          />
+          <div *ngIf="addUserForm.get('password')?.invalid && addUserForm.get('password')?.touched" class="text-danger small mt-2">
+            <i class="fas fa-exclamation-circle me-1"></i>Password must be at least 6 characters.
+          </div>
+        </div>
+
+        <!-- Person ID -->
+        <div class="mb-4">
+          <label for="personID" class="form-label fw-bold">Person</label>
+          <select
+            id="personID"
+            formControlName="personID"
+            class="form-select form-select-lg"
+          >
+            <option value="" disabled selected>Select Person</option>
+            <option *ngFor="let person of people" [value]="person.personID">
+              {{ person.firstName }} {{ person.lastName }}
+            </option>
+          </select>
+          <div *ngIf="personAssigned" class="text-danger small mt-2">
+            <i class="fas fa-exclamation-circle me-1"></i>This person is already assigned to a user.
+          </div>
+          <div *ngIf="addUserForm.get('personID')?.invalid && addUserForm.get('personID')?.touched" class="text-danger small mt-2">
+            <i class="fas fa-exclamation-circle me-1"></i>Person is required.
+          </div>
+        </div>
+
+        <!-- Role -->
+        <div class="mb-4">
+          <label for="role" class="form-label fw-bold">Role</label>
+          <select
+            id="role"
+            formControlName="role"
+            class="form-select form-select-lg"
+          >
+            <option value="" disabled selected>Select Role</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+          <div *ngIf="addUserForm.get('role')?.invalid && addUserForm.get('role')?.touched" class="text-danger small mt-2">
+            <i class="fas fa-exclamation-circle me-1"></i>Role is required.
+          </div>
+        </div>
+
+        <!-- Is Active -->
+        <div class="form-check mb-4">
+          <input
+            type="checkbox"
+            id="isActive"
+            formControlName="isActive"
+            class="form-check-input"
+          />
+          <label for="isActive" class="form-check-label fw-bold">Active</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg w-100"
+          [disabled]="addUserForm.invalid"
+        >
+          <i class="fas fa-plus me-2"></i>Add User
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

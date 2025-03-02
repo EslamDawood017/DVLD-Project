@@ -1,0 +1,130 @@
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4 header">Release License</h2>
+  
+    <!-- Search Bar -->
+  <div class="row mb-4 bar">
+    <div class="col-md-6 offset-md-3">
+      <div class="input-group">
+        <input
+        [(ngModel)]="LicenseId"
+          type="number"
+          class="form-control"
+          placeholder="Enter License ID"
+        />
+        <button (click)="getData()"  class="btn btn-outline-secondary" type="button" >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      
+        <div *ngIf="!isDetained && this.found" class="no-license">
+            This license is not Detained or Released .. !
+        </div>
+        
+    
+        <div *ngIf="!this.found" class="no-license">
+        license Not Found .. !
+        </div>
+    </div>
+  </div>
+  
+  <div class="license-card" >
+    <!-- Main Content -->
+     <div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+        <div  class="card-body">
+            <!-- Left Section -->
+            <div class="left-section">
+              <div class="info-item">
+                <i class="fas fa-id-card"></i> <strong>Class: </strong> <span> {{licenseInfo?.className}} </span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user"></i> <strong>Name: </strong> <span > {{licenseInfo?.fullName}} </span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-hashtag"></i> <strong>License ID: </strong> <span> {{licenseInfo?.licenseID}} </span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-id-badge"></i> <strong>National No: </strong> <span> {{licenseInfo?.nationalNo}} </span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-venus-mars"></i> <strong>Gender: </strong> <span> {{licenseInfo?.gender}} </span>
+              </div>
+              
+              <div class="info-item">
+                <i class="fas fa-birthday-cake"></i> <strong>Date of Birth: </strong> <span>{{licenseInfo?.dateOfBirth | date : 'dd/MM/yyyy'}} </span>
+              </div>
+            </div>
+        
+            <!-- Right Section -->
+            <div class="right-section">
+              <div class="info-item">
+                <i class="fas fa-check-circle"></i> <strong>Is Active? </strong> <span> {{licenseInfo?.isActive}}</span>
+              </div>
+              
+              <div class="info-item">
+                <i class="fas fa-id-card-alt"></i> <strong>Driver ID: </strong> <span>{{licenseInfo?.driverID}}</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-calendar-alt"></i> <strong>Issue Date: </strong> <span> {{licenseInfo?.issueDate | date : 'dd/MM/yyyy' }}</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-calendar-alt"></i> <strong>Expiration Date: </strong> <span>{{licenseInfo?.expirationDate | date : 'dd/MM/yyyy'}} </span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-calendar-alt"></i> <strong>Issue Reason: </strong> <span>{{licenseInfo?.issueReason}}</span>
+              </div>
+            </div>   
+        </div>
+     </div>
+   
+  
+  
+<!-- Application Basic Info -->
+<div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+    <h5 class="mb-3 text-secondary">
+      <i class="fas fa-file-alt me-2"></i>Detain Info
+    </h5>
+    <div class="row">
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>Detain ID:</strong> <span class="text-dark"> {{detention.detainID}} </span>
+      </div>
+      
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>License ID:</strong> <span class="text-dark">{{detention.licenseID}} </span>
+      </div>
+      
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fas fa-coins me-2"></i>Application Fees:</strong> <span > {{this.ApplicationTypeInfo.applicationFees}}</span>
+      </div>
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fas fa-user me-2"></i>Created By:</strong> <span > {{detention.createdByUserID}} </span>
+      </div>
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fas fa-coins me-2"></i>Fine Fees:</strong> <span class="text-dark"> {{detention.fineFees}} </span>
+      </div>
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fas fa-calendar-day me-2"></i>Detain Date:</strong> <span class="text-dark"> {{detention.detainDate | date : "dd/MM/yyyy"}}</span>
+      </div>
+      <div class="col-6 mb-2">
+        <strong class="text-muted"><i class="fa-solid fa-money-check-dollar"></i>Total Fees:</strong> <span class="text-dark"> {{detention.fineFees + ApplicationTypeInfo.applicationFees}} </span>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+  
+  
+  
+  <!-- Footer -->
+  <div class="footer d-flex justify-content-end align-items-center mt-4">
+      
+  <button class="btn btn-secondary" (click)="Close()">
+    <i class="fas fa-times me-2 "></i>Close
+  </button>
+  <button class="btn Issue "  [disabled]="!this.isDetained" (click)="Release()">
+    <i class="fas fa-check-circle me-2"></i>Release License
+  </button>
+  </div>
+  </div>
+

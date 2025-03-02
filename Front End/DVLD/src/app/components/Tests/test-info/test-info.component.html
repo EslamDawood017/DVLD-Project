@@ -1,0 +1,118 @@
+<div class="vision-test-container p-4 bg-white rounded-4 shadow-lg">
+    <!-- Header -->
+    <div class="header d-flex align-items-center mb-4">
+      <img [src]="imagePath" alt="Vision Test Icon" class="icon me-3" style="width: 60px; height: 60px;" />
+      <h2 class="title mb-0 text-primary">
+       {{lebal}} Test Appointments
+      </h2>
+    </div>
+  
+    <!-- Driving License Application Info -->
+    <div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-id-card me-2"></i>Driving License Application Info
+      </h5>
+      <div class="row">
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>D.L App ID:</strong> <span class="text-dark"> {{this.localDrivingLicenseApp.localDrivingLicenseApplicationID}}</span>
+        </div>
+        
+        <div class="col-8 mb-2">
+          <strong class="text-muted"><i class="fas fa-car me-2"></i>Applied For License:</strong> <span class="text-dark"> {{this.localDrivingLicenseApp.className}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-check-circle me-2"></i>Passed Tests:</strong> <span class="text-dark"> {{PassedTest}}/3</span>
+        </div>
+        <div class="col-6 mb-2">
+          <button class="btn btn-primary btn-sm">
+            <i class="fas fa-info-circle me-2"></i>Show License Info
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  
+    <!-- Application Basic Info -->
+    <div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-file-alt me-2"></i>Application Basic Info
+      </h5>
+      <div class="row">
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>ID:</strong> <span class="text-dark"> {{this.BaseApplication.applicationID}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-calendar-day me-2"></i>Date:</strong> <span class="text-dark"> {{this.BaseApplication.applicationDate | date : 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-tag me-2"></i>Status:</strong> <span >  {{this.localDrivingLicenseApp.status}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-calendar-check me-2"></i>Status Date:</strong> <span class="text-dark"> {{this.BaseApplication.lastStatusDate | date : 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-coins me-2"></i>Fees:</strong> <span class="text-dark"> {{this.BaseApplication.paidFees}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-user me-2"></i>Created By:</strong> <span > {{this.BaseApplication.userName}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-tasks me-2"></i>Type:</strong> <span class="text-dark"> {{BaseApplication.applicationTypeTitle}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-user-tie me-2"></i>Applicant:</strong> <span class="text-dark"> {{this.localDrivingLicenseApp.fullName}}</span>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="addnew col-12 mb-2">
+      <button (click)="AddNew()" class="btn btn-primary btn-sm">
+        <i class="fas fa-info-circle me-2"></i>Add new Appointment
+      </button>
+    </div>
+  
+    <!-- Appointments Table -->
+    <div class="appointments-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-calendar-alt me-2"></i>Appointments:
+      </h5>
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="table-primary">
+          <tr>
+            <th><i class="fas fa-hashtag me-2"></i>Appointment ID</th>
+            <th><i class="fas fa-calendar-day me-2"></i>Appointment Date</th>
+            <th><i class="fas fa-coins me-2"></i>Paid Fees</th>
+            <th><i class="fas fa-lock me-2"></i>Is Locked</th>
+            <th><i class="fa-solid fa-gear"></i> Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of allTestAppointment" [ngClass]="{'disabled-row': app.isLocked}">
+            <td> {{app.testAppointmentID}}</td>
+            <td> {{app.appointmentDate | date : 'medium'}}</td>
+            <td> {{app.paidFees}}</td>
+            <td>
+            <input type="checkbox"  [checked] = "app.isLocked" [disabled]="app.isLocked"/>
+            </td>
+            <td>
+              <button  class="btn btn-sm btn-outline-primary mr-2 me-2" [disabled]="app.isLocked" (click)="UpdateAppointmentDate()" >Update</button>
+              <button class="btn btn-sm btn-outline-success" [disabled]="app.isLocked" (click)="TakeTest(app)">Take Test</button>
+            </td>
+            
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Footer -->
+    <div class="footer d-flex justify-content-between align-items-center mt-4">
+      <span class="text-muted">
+        <i class="fas fa-list me-2"></i># Records: {{this.allTestAppointment.length }}
+      </span>
+      <button class="btn btn-secondary" (click)="Cancel()">
+        <i class="fas fa-times me-2"></i>Close
+      </button>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Driver Management</h2>
+
+    <!-- Search Bar -->
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by National No..."
+          [(ngModel)]="searchQuery"
+          (input)="filterDrivers()"
+        />
+        <button  class="btn btn-outline-secondary" type="button" (click)="filterDrivers()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Driver ID</th>
+            <th>Person ID</th>
+            <th>National No</th>
+            <th>Full Name</th>
+            <th>Date</th>
+            <th>Active Licenses</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Driver of filteredDrivers; let i = index">
+            <td>{{ Driver.driverID }}</td>
+            <td>{{ Driver.personID }}</td>
+            <td>{{ Driver.nationalNo}}</td>
+            <td>{{ Driver.fullName}}</td>
+            <td>{{ Driver.createdDate | date : "dd/MM/yyyy" }}</td>
+            <td>{{ Driver.numberOfActiveLicenses}}</td>
+            <td >
+                <!-- Update Button -->
+                <button class="btn btn-sm btn-outline-primary mr-2 me-2" (click)="ShowPersonInfo(Driver.personID)">
+                  <i class="fas fa-edit"></i> Info
+                </button>
+                <!-- Delete Button -->
+                <button class="btn btn-sm btn-outline-secondary " (click)="ShowPersonLicenseHistory(Driver.nationalNo)" >
+                  <i class="fa-solid fa-clock-rotate-left"></i> Licenses history
+                </button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

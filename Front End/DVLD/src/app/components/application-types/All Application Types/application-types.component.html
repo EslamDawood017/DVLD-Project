@@ -1,0 +1,48 @@
+<div class="container ">
+    <div class="card shadow-sm ">
+      <div class="card-header text-white">
+        <h2 class="card-title mb-0">Application Types</h2>
+      </div>
+      <div class="card-body">
+        <!-- Loading Spinner -->
+        <div *ngIf="isLoading" class="text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+  
+        <!-- Table -->
+        <div *ngIf="!isLoading" class="table-responsive">
+          <table class="table table-hover table-striped">
+            <thead >
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Fees</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let type of applicationTypes">
+                <td>{{ type.applicationTypeID }}</td>
+                <td>{{ type.applicationTypeTitle }}</td>
+                <td>${{ type.applicationFees }}</td>
+                <td>
+                  <button class="btn btn-outline-primary btn-sm" (click)="onUpdate(type)">
+                     Update
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="card-footer text-muted text-center">
+            Showing {{ applicationTypes.length }} application types
+          </div>
+          <div *ngIf="!isLoading && applicationTypes.length === 0" class="alert alert-info text-center">
+            No application types found.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

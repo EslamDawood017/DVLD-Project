@@ -1,0 +1,307 @@
+/* Main Container */
+.license-card {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  margin-top: 6rem;
+  font-size: 2rem;
+  color: #388da8;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.license-icon {
+  width: 100px;
+  margin-right: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #388da8;
+}
+
+/* Card Body */
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+/* Left & Right Sections */
+.left-section,
+.right-section {
+  flex: 1;
+  padding: 1rem;
+}
+
+strong {
+  margin-right: 0.5rem;
+  color: #333;
+}
+
+/* Info Item */
+.info-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  color: #555;
+}
+
+.info-item i {
+  width: 20px;
+  margin-right: 0.75rem;
+  color: #388da8;
+}
+
+/* Search Bar */
+.input-group {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.input-group input {
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #ced4da;
+}
+
+.input-group button {
+  border-radius: 0 20px 20px 0;
+  background-color: #388da8;
+  color: #fff;
+  border: 1px solid #388da8;
+}
+
+.input-group button:hover {
+  background-color: #2c6f8a;
+  border-color: #2c6f8a;
+}
+
+/* Validation Messages */
+.no-license {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.bar{
+  margin-bottom: 30px;
+}
+
+.no-license-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Footer */
+.footer {
+  border-top: 2px solid #e0e0e0;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.footer button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.footer .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.footer .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+.footer .Issue {
+  background-color: #388da8;
+  border-color: #388da8;
+  color: #fff;
+}
+
+.footer .Issue:hover {
+  background-color: #2c6f8a;
+  border-color: #2c6f8a;
+}
+
+/* Note Section */
+.appointments-box {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.appointments-box h5 {
+  font-size: 1.25rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.custom-textarea {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  resize: none;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.custom-textarea:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Radio Buttons */
+.form-check-input:checked {
+  background-color: #388da8;
+  border-color: #388da8;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(56, 141, 168, 0.25);
+}
+
+/* Utility Classes */
+.bg-gradient-light {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.rounded-3 {
+  border-radius: 0.75rem;
+}
+
+.rounded-4 {
+  border-radius: 1rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.form-label{
+  color: #2c6f8a;
+}
+/* options */ 
+.options{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.sub-title{
+  color: #388da8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card-body {
+      flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+      padding: 0.5rem;
+  }
+
+  .header {
+      margin-top: 4rem;
+      font-size: 1.5rem;
+  }
+
+  .input-group {
+      max-width: 100%;
+  }
+
+}
+
+/* Styling the parent container */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Note and Replacement sections */
+.note-section, .replacement-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Styling the text area */
+#note-area {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Focus effect */
+#note-area:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Replacement box styling */
+.replacement-box {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 15px;
+  background: #ffffff;
+}
+
+/* Hover effect */
+.replacement-box:hover {
+  background: #f1f1f1;
+}
+
+/* Radio buttons spacing */
+.form-check-inline {
+  margin-right: 15px;
+}
+
+  

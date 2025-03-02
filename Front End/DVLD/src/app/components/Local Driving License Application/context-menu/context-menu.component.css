@@ -1,0 +1,69 @@
+.context-menu {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+  padding: 7px;
+}
+
+.context-menu ul {
+  padding: 0;
+  margin: 0;
+}
+
+.context-menu .option {
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.context-menu .option:hover {
+  background-color: #f8f9fa;
+}
+
+.context-menu img {
+  width: 24px;
+  height: 24px;
+}
+
+.context-menu hr {
+  margin: 0;
+  border-top: 1px solid #586e83;
+ 
+}
+
+.context-menu .submenu {
+  display: none;
+  position: absolute;
+  left: 95%;
+  top: -8%;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1001;
+}
+
+.context-menu .has-submenu:hover .submenu {
+  display: block;
+}
+
+.context-menu .option {
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.context-menu .option i,
+.context-menu .option span {
+  margin-left: auto; /* Push the icon to the right */
+  font-size: 12px; /* Adjust icon size */
+  color: #666; /* Adjust icon color */
+}
+

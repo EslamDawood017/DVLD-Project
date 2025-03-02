@@ -1,0 +1,30 @@
+node_modules
+
+
+# Ignore dependencies and build files
+node_modules/
+dist/
+out-tsc/
+.tmp/
+.angular/
+.idea/
+.vscode/
+
+
+# Ignore build and bin folders
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.user
+*.suo
+*.vs/
+*.csproj.user
+
+# Ignore secrets
+appsettings.json
+appsettings.Development.json
+secrets.json
+.env
+

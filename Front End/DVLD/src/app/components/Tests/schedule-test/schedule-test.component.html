@@ -1,0 +1,75 @@
+<div class="container mt-5">
+    <div class="schedule-card card shadow-sm">
+      <div class="card-header  text-white">
+        <h5 class="mb-0">Schedule {{Label}}</h5>
+        <small class="fst-italic">Cannot Seclude, Vision Test Should be Passed First.</small>
+      </div>
+      
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label text-secondary">D.L.App.ID</label>
+            <div class="form-control-static">{{localDrivingLicenseApplication.localDrivingLicenseApplicationID}}</div>
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label text-secondary">License Class</label>
+            <div class="form-control-static">{{localDrivingLicenseApplication.className}}</div>
+          </div>
+  
+          <div class="col-12">
+            <label class="form-label text-secondary">Name</label>
+            <div class="form-control-static">{{localDrivingLicenseApplication.fullName}}</div>
+          </div>
+  
+          <div class="col-md-4">
+            <label class="form-label text-secondary">Number Of Trail</label>
+            <div class="form-control-static">{{NumberOfTrail}}</div>
+          </div>
+  
+          <div class="col-md-4">
+            <label class="form-label text-secondary">Date</label>
+            <input type="date" class="form-control" [(ngModel)]="currentDate" [min]="minDate">
+
+          </div>
+  
+          <div class="col-md-4">
+            <label class="form-label text-secondary">Fees</label>
+            <div class="form-control-static text-success">${{TestType.testTypeFees}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="retake-card card mt-4 shadow-sm">
+      <div class="card-header bg-secondary text-white">
+        <h5 class="mb-0">Retake Test Info</h5>
+      </div>
+      <div  class="card-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label text-secondary">R.App.Fees</label>
+            <div class="form-control-static text-success" *ngIf="!DoesAttendTestType">$00.00</div>
+            <div  class="form-control-static text-success" *ngIf="DoesAttendTestType">${{this.RetakeTestFees}}</div>
+          </div>
+  
+          <div class="col-md-6">
+            <label class="form-label text-secondary">Total Fees</label>
+            <div class="form-control-static text-success" *ngIf="!DoesAttendTestType">${{this.TestType.testTypeFees}}</div>
+            <div class="form-control-static text-success" *ngIf="DoesAttendTestType">${{this.TestType.testTypeFees + this.RetakeTestFees}}</div>
+          </div>
+  
+          <div class="col-12">
+            <label class="form-label text-secondary">R.Test.App.ID</label>
+            <div class="form-control-static">N/A</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="Save col-md-12 mb-3">
+        <button class="btn btn-primary col-md-6 " (click)="Save()">Save</button>
+      </div>
+    </div>
+    
+    
+  </div>

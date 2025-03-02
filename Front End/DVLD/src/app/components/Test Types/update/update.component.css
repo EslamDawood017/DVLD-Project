@@ -1,0 +1,79 @@
+/* Container */
+.container {
+    max-width: 600px;
+  }
+  
+  /* Card Styling */
+  .update-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin-top: 120px;
+  }
+  
+  /* Header with a gradient background */
+  .card-header {
+    padding: 15px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #388da8, #2c7991); /* Deep Blue Gradient */
+  }
+  
+  /* Input Group */
+  .input-group-text {
+    background: #388da8;
+    color: white;
+    border: none;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+  }
+  
+  /* Focus effect */
+  .form-control:focus {
+    border-color: #388da8;
+    box-shadow: 0 0 6px rgba(0, 86, 179, 0.5);
+  }
+  
+  /* Custom Primary Button */
+  .custom-btn-primary {
+    background: #388da8;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .custom-btn-primary:hover {
+    background: #003d7a;
+  }
+  
+  /* Custom Secondary Button */
+  .custom-btn-secondary {
+    background: #6c757d;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .custom-btn-secondary:hover {
+    background: #495057;
+  }
+  
+  /* Alert Box */
+  .alert {
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #ffc107;
+    color: #856404;
+  }
+  

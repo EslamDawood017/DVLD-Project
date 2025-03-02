@@ -1,0 +1,195 @@
+<div class="container mt-5">
+    <div class="card shadow-lg">
+      <div class="card-header  text-white text-center">
+        <h2 class="mb-0">Add New Person</h2>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
+          
+          <!-- National Number -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="nationalNo" class="form-label">National Number</label>
+              <input
+                type="text"
+                id="nationalNo"
+                formControlName="nationalNo"
+                class="form-control"
+                placeholder="Enter National Number"
+              />
+              <div *ngIf="addPersonForm.get('nationalNo')?.invalid && addPersonForm.get('nationalNo')?.touched" class="text-danger small">
+                National Number is required.
+              </div>
+            </div>
+            
+          </div>
+
+          
+  
+          <!-- Name Fields -->
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                formControlName="firstName"
+                class="form-control"
+                placeholder="Enter First Name"
+              />
+              <div *ngIf="addPersonForm.get('firstName')?.invalid && addPersonForm.get('firstName')?.touched" class="text-danger small">
+                First Name is required.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="secondName" class="form-label">Second Name</label>
+              <input
+                type="text"
+                id="secondName"
+                formControlName="secondName"
+                class="form-control"
+                placeholder="Enter Second Name"
+              />
+              <div *ngIf="addPersonForm.get('secondName')?.invalid && addPersonForm.get('secondName')?.touched" class="text-danger small">
+                Second Name is required.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="thirdName" class="form-label">Third Name</label>
+              <input
+                type="text"
+                id="thirdName"
+                formControlName="thirdName"
+                class="form-control"
+                placeholder="Enter Third Name"
+              />
+              <div *ngIf="addPersonForm.get('thirdName')?.invalid && addPersonForm.get('thirdName')?.touched" class="text-danger small">
+                Third Name is required.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                formControlName="lastName"
+                class="form-control"
+                placeholder="Enter Last Name"
+              />
+              <div *ngIf="addPersonForm.get('lastName')?.invalid && addPersonForm.get('lastName')?.touched" class="text-danger small">
+                Last Name is required.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Date of Birth and Gender -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="dateOfBirth" class="form-label">Date of Birth</label>
+              <input
+                type="date"
+                id="dateOfBirth"
+                formControlName="dateOfBirth"
+                class="form-control"
+              />
+              <div *ngIf="addPersonForm.get('dateOfBirth')?.invalid && addPersonForm.get('dateOfBirth')?.touched" class="text-danger small">
+                Date of Birth is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="gendor" class="form-label">Gender</label>
+              <select id="gendor" formControlName="gendor" class="form-control">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+              </select>
+              <div *ngIf="addPersonForm.get('gendor')?.invalid && addPersonForm.get('gendor')?.touched" class="text-danger small">
+                Gender is required.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Address and Phone -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="address" class="form-label">Address</label>
+              <input
+                type="text"
+                id="address"
+                formControlName="address"
+                class="form-control"
+                placeholder="Enter Address"
+              />
+              <div *ngIf="addPersonForm.get('address')?.invalid && addPersonForm.get('address')?.touched" class="text-danger small">
+                Address is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone</label>
+              <input
+                type="text"
+                id="phone"
+                formControlName="phone"
+                class="form-control"
+                placeholder="Enter Phone"
+              />
+              <div *ngIf="addPersonForm.get('phone')?.invalid && addPersonForm.get('phone')?.touched" class="text-danger small">
+                Phone is required.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Email and Nationality -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-control"
+                placeholder="Enter Email"
+              />
+              <div *ngIf="addPersonForm.get('email')?.invalid && addPersonForm.get('email')?.touched" class="text-danger small">
+                Please enter a valid email.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="nationalityCountryID" class="form-label">Nationality</label>
+              <select id="nationalityCountryID" formControlName="nationalityCountryID" class="form-control">
+                <option value = "0" disabled selected>Select Nationality</option>
+                <option *ngFor="let country of countries" [value]="country.countryID">
+                  {{ country.countryName }}
+                </option>
+              </select>
+              <div *ngIf="addPersonForm.get('nationalityCountryID')?.invalid && addPersonForm.get('nationalityCountryID')?.touched" class="text-danger">
+                Nationality is required.
+              </div>
+            </div>
+          </div>
+          <!-- image uplaod -->
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <label for="imagePath" class="form-label">image</label>
+              <input
+                type="file"
+                id="imagePath"
+                (change)="onImageSelected($event)"
+                formControlName="imagePath"
+                class="form-control"
+                placeholder="Upload Image"
+              />
+            </div>
+            
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-success px-4" [disabled]="addPersonForm.invalid">
+              Update Person
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

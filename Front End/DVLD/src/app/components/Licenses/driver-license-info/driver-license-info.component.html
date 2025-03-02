@@ -1,0 +1,76 @@
+<div class="license-card" >
+  <!-- Header -->
+  <img src="/assets/img/LicenseView 400.png" alt="License Icon" class="license-icon" />
+
+  <div class="card-header">
+    <h2>Driver License Info</h2>
+  </div>
+
+  <div class="no-license-container">
+    <div *ngIf="!DoesPersonHaveAlicense" class="no-license">
+      This Person doesn't have a License 
+    </div>
+  </div>
+  
+
+  <!-- Main Content -->
+  <div *ngIf="DoesPersonHaveAlicense" class="card-body">
+    <!-- Left Section -->
+    <div class="left-section">
+      <div class="info-item">
+        <i class="fas fa-id-card"></i> <strong>Class: </strong> <span> {{ license.className }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-user"></i> <strong>Name: </strong> <span > {{ license.fullName }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-hashtag"></i> <strong>License ID: </strong> <span> {{ license.licenseID }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-id-badge"></i> <strong>National No: </strong> <span> {{ license.nationalNo }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-venus-mars"></i> <strong>Gender: </strong> <span> {{ license.gender }}</span>
+      </div>
+      
+      <div class="info-item">
+        <i class="fas fa-birthday-cake"></i> <strong>Date of Birth: </strong> <span> {{ license.dateOfBirth | date : 'dd/MM/yyyy'}}</span>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <div class="info-item">
+        <i class="fas fa-check-circle"></i> <strong>Is Active? </strong> <span> {{ license.isActive }}</span>
+      </div>
+      
+      <div class="info-item">
+        <i class="fas fa-id-card-alt"></i> <strong>Driver ID: </strong> <span> {{ license.driverID }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt"></i> <strong>Issue Date: </strong> <span> {{ license.issueDate | date : 'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt"></i> <strong>Expiration Date: </strong> <span> {{ license.expirationDate | date : 'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt"></i> <strong>Issue Reason: </strong> <span> {{ license.issueReason  }}</span>
+      </div>
+    </div>
+
+    <!-- Profile Picture -->
+    <div class="profile-section" *ngIf="this.license.imagePath">
+      <img [src]="host+license.imagePath" alt="User Profile" class="profile-picture" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="card-footer">
+    <button class="btn close" (click)="Close()">Close</button>
+  </div>
+</div>
+
+
+
+
+

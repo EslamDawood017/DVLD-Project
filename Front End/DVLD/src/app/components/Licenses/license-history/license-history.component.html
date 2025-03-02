@@ -1,0 +1,88 @@
+<div class="vision-test-container p-4 bg-white rounded-4 shadow-lg">
+    <!-- Header -->
+    <div class="header d-flex align-items-center mb-4">
+      <img src="/assets/img/LicenseView 400.png" alt="License Icon" class="icon me-3" style="width: 60px; height: 60px;" />
+      <h2 class="title mb-0 ">
+       Licenses history
+      </h2>
+    </div>
+  
+    <!-- person Info -->
+    <div class="info-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-id-card me-2"></i>Person Info
+      </h5>
+      <div class="row">
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-hashtag me-2"></i>ID:</strong> <span class="text-dark"> {{PersonInfo.personID}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-calendar-day me-2"></i>Date of Birth:</strong> <span class="text-dark"> {{PersonInfo.dateOfBirth| date : 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-tag me-2"></i>Address:</strong> <span >  {{PersonInfo.address}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-calendar-check me-2"></i>Country Name:</strong> <span class="text-dark"> {{PersonInfo.countryName}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-coins me-2"></i>Email:</strong> <span class="text-dark"> {{PersonInfo.email}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-user me-2"></i>Name:</strong> <span > {{PersonInfo.firstName + ' ' + PersonInfo.secondName + ' ' + PersonInfo.thirdName + ' ' + PersonInfo.lastName}}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-tasks me-2"></i>Gendor:</strong> <span class="text-dark"> {{PersonInfo.gendor == 1 ? "Female" : "Male" }}</span>
+        </div>
+        <div class="col-6 mb-2">
+          <strong class="text-muted"><i class="fas fa-user-tie me-2"></i>National No:</strong> <span class="text-dark"> {{PersonInfo.nationalNo}}</span>
+        </div>
+        <div class="col-6 mb-2">
+            <strong class="text-muted"><i class="fas fa-user-tie me-2"></i>Phone:</strong> <span class="text-dark"> {{PersonInfo.phone}}</span>
+          </div>
+      </div>
+    </div>
+
+    
+  
+    <!-- Appointments Table -->
+    <div class="appointments-box bg-gradient-light p-4 rounded-3 mb-4">
+      <h5 class="mb-3 text-secondary">
+        <i class="fas fa-calendar-alt me-2"></i>Local Licenses:
+      </h5>
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="table-primary">
+          <tr>
+            <th><i class="fas fa-hashtag me-2"></i>License ID</th>
+            <th><i class="fas fa-calendar-day me-2"></i>National No</th>
+            <th><i class="fas fa-coins me-2"></i>Class Name</th>
+            <th><i class="fas fa-lock me-2"></i>Issue Date</th>
+            <th><i class="fa-solid fa-gear"></i> Expiration Date</th>
+            <th><i class="fa-solid fa-gear"></i> Is Active</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of LicensesInfo" [ngClass]="{'disabled-row': app.isActive == 'False'}">
+            <td> {{app.licenseID}}</td>
+            <td> {{app.nationalNo }}</td>
+            <td> {{app.className}}</td>
+            <td> {{app.issueDate | date : 'dd/MM/yyyy'}}</td>
+            <td> {{app.expirationDate | date : 'dd/MM/yyyy'}}</td>
+            <td>
+            <input type="checkbox"  [checked]="app.isActive=='True'" [disabled]="app.isActive == 'Fasle'"/>
+            </td>   
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Footer -->
+    <div class="footer d-flex justify-content-between align-items-center mt-4">
+      <span class="text-muted">
+        <i class="fas fa-list me-2"></i># Records: {{this.LicensesInfo.length }}
+      </span>
+      <button class="btn btn-secondary" (click)="Cancel()">
+        <i class="fas fa-times me-2"></i>Close
+      </button>
+    </div>
+  </div>

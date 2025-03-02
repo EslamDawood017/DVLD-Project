@@ -1,0 +1,69 @@
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"> 
+    <!-- Logo (Align Left) -->
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="assets/img/logo.png" alt="">
+      <h1 class="sitename">DVLD</h1>
+    </a>
+    <!-- Centered Navigation Menu -->
+    <nav id="navmenu" class="navmenu mx-auto">
+      <ul class="d-flex justify-content-center">
+        <li><a routerLink="Home">Home</a></li>
+        <li class="dropdown">
+          <a>Applications <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li class="dropdown">
+              <a>Driving License Service</a>
+              <ul>
+                <li class="dropdown"><a href="#"><span>New Driving License</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a routerLink="/add-new-LDLA">Local Driving License</a></li>
+                    <li><a routerLink="/IssueInternationalLicense">International Driving License</a></li>
+                  </ul>
+                </li>
+                <li><a routerLink="/Renew">Renew Driving License</a></li>
+                <li><a routerLink="/Replacement">Replacement For Lost or Damaged License</a></li>
+              </ul>
+            </li>        
+            <li class="dropdown" >
+              <a><span>Manage Applications</span></a>
+              <ul>
+                <li><a routerLink="/getAllLDLA">Local Driving License Applications</a></li>
+                <li><a routerLink="/ListInternational">International Driving License Applications</a></li>
+              </ul>
+            </li>   
+            <li class="dropdown" >
+              <a><span>Detain Licenses</span></a>
+              <ul>
+                <li><a routerLink="/ReleaseList">Manage Detained Licenses</a></li>
+                <li><a routerLink="/DetainLicense">Detain License </a></li>
+                <li><a routerLink="/ReleaseLicense">Released Detained Licenses</a></li>
+              </ul>
+            </li>   
+            <li><a routerLink="/application-types">Appliaction Types</a></li>
+            <li><a routerLink="/Test-Type-List">Test Types</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="People">People</a></li>
+        <li><a routerLink="List-Drivers">Drivers</a></li>
+        <li><a routerLink="UsersList">Users</a></li>
+        
+      </ul>
+    </nav>
+    <!-- Right-Side Settings & Login -->
+    <div class="d-flex align-items-center">
+      <div class="dropdown btn-getstarted" *ngIf="authService.isAuthenticated()">
+        <button class="dropdown-toggle" type="button" id="appSettingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-gear-fill"></i> Settings
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="appSettingsDropdown">
+          <li><a (click)="goToProfile()" class="dropdown-item"><i class="bi bi-person-circle"></i> Profile</a></li>
+          <li><a (click)="changePassword()" class="dropdown-item"><i class="bi bi-lock-fill"></i> Change Password</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" (click)="logout()"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+        </ul>
+      </div>
+      <a *ngIf="!authService.isAuthenticated()" class="btn-getstarted" routerLink="/Login">Login</a>
+    </div>
+  </div>
+</header>

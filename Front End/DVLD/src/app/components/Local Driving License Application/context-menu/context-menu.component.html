@@ -1,0 +1,50 @@
+<div class="context-menu" [ngStyle]="{ 'left.px': x, 'top.px': y }">
+  <ul class="list-unstyled">
+    <div class="option d-flex align-items-center p-2">
+      <img src="assets/img/PersonDetails32.png" class="me-2">
+      <li (click)="onOptionClick('ViewDetails')">Show Application Details</li>
+    </div>
+    <hr class="my-1">
+ 
+    <div class="option d-flex align-items-center p-2">
+      <img src="assets/img/cancel.png" class="me-2">
+      <li (click)="onOptionClick('Cancel')">Cancel Application</li>
+    </div>
+    <hr class="my-1">
+    <div class="option d-flex align-items-center p-2 has-submenu">
+      <img src="assets/img/ScheduleTest32.png" class="me-2">
+      <li>Schedule Tests</li>
+      <i class="fas fa-chevron-right"></i>
+      <ul class="submenu list-unstyled ms-3">
+        <div class="option d-flex align-items-center p-2">
+          <img src="assets/img/Vision Test Schdule.png" class="me-2">
+          <li (click)="onOptionClick('Vision')">Vision test</li>
+        </div>
+        <div class="option d-flex align-items-center p-2">
+          <img src="assets/img/Written Test 32 Sechdule.png" class="me-2">
+          <li (click)="onOptionClick('Written')">Written test</li>
+        </div>
+        <div class="option d-flex align-items-center p-2">
+          <img src="assets/img/Street Test 32.png" class="me-2">
+          <li (click)="onOptionClick('Practical')">Practical test</li>
+        </div>
+      </ul>
+      
+    </div>
+    <hr class="my-1">
+      <div class="option d-flex align-items-center p-2">
+        <img src="assets/img/LocalDriving License.png" class="me-2">
+        <li (click)="onOptionClick('IssueFirstTime')">Issue driving License (First Time)</li>
+      </div>
+      <hr class="my-1">
+      <div class="option d-flex align-items-center p-2">
+        <img src="assets/img/Renew Driving License 32.png" class="me-2">
+        <li (click)="onOptionClick('ShowLicenseInfo')">Show Licenses</li>
+      </div>
+      <hr class="my-1">
+      <div class="option d-flex align-items-center p-2">
+        <img src="assets/img/PersonLicenseHistory 32.png" class="me-2">
+        <li (click)="onOptionClick('ShowLicenseInfoHistory')">Show person License history</li>
+      </div>
+  </ul>
+</div>

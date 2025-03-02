@@ -1,0 +1,63 @@
+/* Custom Card Styling */
+.custom-card {
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 150px;
+  }
+  
+  /* Test Icon Styling */
+  .test-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+  
+  /* Detail Item Styling */
+  .detail-item {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+  }
+  
+  .detail-item:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Custom Textarea Styling */
+  .custom-textarea {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    resize: none;
+  }
+  
+  .custom-textarea:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  
+  /* Button Styling */
+  .btn-outline-secondary {
+    border-radius: 8px;
+    padding: 8px 16px;
+  }
+  
+  .btn-primary {
+    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: #0d6efd;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0b5ed7;
+  }
+  .Result{
+    margin-right: 15px;
+  }

@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="profile-card shadow-lg">
+      <!-- Card Header -->
+      <div class="card-header bg-primary text-white text-center py-4">
+        <h3 class="mb-2">{{ userProfile?.firstName }} {{ userProfile?.lastName }}</h3>
+        <p class="mb-0"><strong>Role:</strong> {{ userProfile?.role }}</p>
+      </div>
+  
+      <!-- Card Body -->
+      <div class="card-body p-4">
+        <!-- User Avatar -->
+        <div class="text-center mb-4">
+          <img
+            [src]="apiUrl + userProfile.imagePath"
+            class="profile-avatar img-thumbnail"
+            alt="User Avatar"
+          />
+        </div>
+  
+        <!-- Personal Information -->
+        <h5 class="section-title mb-4">Personal Information</h5>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <th>National Number:</th>
+              <td>{{ userProfile?.nationalNo }}</td>
+            </tr>
+            <tr>
+              <th>Full Name:</th>
+              <td>{{ userProfile?.firstName }} {{ userProfile?.secondName }} {{ userProfile?.thirdName }} {{ userProfile?.lastName }}</td>
+            </tr>
+            <tr>
+              <th>Date of Birth:</th>
+              <td>{{ formatDate(userProfile?.dateOfBirth) }}</td>
+            </tr>
+            <tr>
+              <th>Gender:</th>
+              <td>
+                <span class="badge" [ngClass]="userProfile?.gendor === 0 ? 'bg-primary' : 'bg-danger'">
+                  {{ userProfile?.gendor === 0 ? 'Male' : 'Female' }}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>Address:</th>
+              <td>{{ userProfile?.address }}</td>
+            </tr>
+            <tr>
+              <th>Phone:</th>
+              <td>{{ userProfile?.phone }}</td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td>{{ userProfile?.email }}</td>
+            </tr>
+            <tr>
+              <th>Status:</th>
+              <td>
+                <span class="badge" [ngClass]="userProfile?.isActive ? 'bg-success' : 'bg-danger'">
+                  {{ userProfile?.isActive ? 'Active' : 'Inactive' }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

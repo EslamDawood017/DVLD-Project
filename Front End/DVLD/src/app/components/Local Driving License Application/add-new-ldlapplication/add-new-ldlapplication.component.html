@@ -1,0 +1,69 @@
+<div class="container mt-5">
+    <div class="card shadow-lg">
+      <!-- Card Header -->
+      <div class="card-header text-white text-center bg-gradient-primary">
+        <h2 class="mb-0"><i class="bi bi-car-front-fill me-2"></i> New License Application</h2>
+      </div>
+  
+      <!-- Card Body -->
+      <div class="card-body p-4">
+        <!-- Search by National Number -->
+        <div class="input-group mb-4">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Enter National Number"
+            [(ngModel)]="nationalNo"
+          />
+          <button class="btn btn-primary btn-lg" (click)="searchPerson()">
+            <i class="bi bi-search me-2"></i> Search
+          </button>
+        </div>
+  
+        <!-- Person Info Display -->
+        <div *ngIf="person" class="alert alert-success mb-4">
+          <h5 class="alert-heading">Person Information</h5>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Name:</strong> {{ person.firstName }} {{ person.lastName }}</p>
+              <p><strong>National No:</strong> {{ person.nationalNo }}</p>
+              <p><strong>Gender:</strong> {{ person.gendor == 0 ? "Male" : "Female"}}</p>
+              <p><strong>Address:</strong> {{ person.address }}</p> 
+            </div>
+            <div class="col-md-6">
+              <p><strong>Phone:</strong> {{ person.phone }}</p>
+              <p><strong>Date of Birth:</strong> {{ person.dateOfBirth }}</p>
+              <p><strong>Email:</strong> {{ person.email }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- No Person Found Message -->
+        <div *ngIf="!person && nationalNo" class="alert alert-danger mb-4">
+          <i class="bi bi-exclamation-circle me-2"></i> No person found with this national number.
+        </div>
+  
+        <!-- License Class Selection -->
+        <div class="mb-4">
+          <label class="form-label fw-bold">Select License Class</label>
+          <select
+            class="form-select form-select-lg"
+            [(ngModel)]="selectedLicenseClassId"
+          >
+            <option value="0" disabled>Select Class</option>
+            <option *ngFor="let cls of licenseClasses" [value]="cls.licenseClassID">
+              {{ cls.className }}
+            </option>
+          </select>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button class="btn btn-success btn-lg" (click)="submitApplication()">
+            <i class="bi bi-check-circle me-2"></i> Submit Application
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

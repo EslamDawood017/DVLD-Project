@@ -1,0 +1,44 @@
+<div class="container mt-5">
+    <div class="card update-card shadow-lg">
+      <div class="card-header text-white text-center">
+        <h2 class="card-title mb-0"><i class="bi bi-pencil-square"></i> Update Application Type</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" *ngIf="applicationType">
+          <!-- Title Input -->
+          <div class="mb-3">
+            <label for="applicationTypeTitle" class="form-label">Title</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+              <input type="text" class="form-control" id="applicationTypeTitle" [(ngModel)]="applicationType.applicationTypeTitle" name="applicationTypeTitle" required>
+            </div>
+          </div>
+  
+          <!-- Fees Input -->
+          <div class="mb-3">
+            <label for="applicationFees" class="form-label">Fees</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-cash"></i></span>
+              <input type="number" class="form-control" id="applicationFees" [(ngModel)]="applicationType.applicationFees" name="applicationFees" required>
+            </div>
+          </div>
+  
+          <!-- Buttons -->
+          <div class="text-center">
+            <button type="submit" class="btn custom-btn-primary">
+              <i class="bi bi-check-lg"></i> Update
+            </button>
+            <button type="button" class="btn custom-btn-secondary ms-2" (click)="onCancel()">
+              <i class="bi bi-x-lg"></i> Cancel
+            </button>
+          </div>
+        </form>
+  
+        <!-- Warning Message -->
+        <div *ngIf="!applicationType" class="alert alert-warning text-center">
+          <i class="bi bi-exclamation-triangle-fill"></i> Application type not found.
+        </div>
+      </div>
+    </div>
+  </div>
+  
