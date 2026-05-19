@@ -351,10 +351,11 @@ namespace DVLD_DataAccessLayer.Repositories
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                string query = "SELECT * FROM vw_LicenseInfo WHERE LocalDrivingLicenseApplicationID = @ApplicationID";
+                string query = @"SELECT * FROM vw_LicenseDetails WHERE LocalAppID =  @LocalDrivingLicenseApplicationID;";
+
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ApplicationID", LocalDrivingLicenseApplicationId);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationId);
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -371,8 +372,8 @@ namespace DVLD_DataAccessLayer.Repositories
                         Gender = (string)reader["Gendor"],
                         ImagePath = (string)reader["ImagePath"],
                         ExpirationDate = Convert.ToDateTime(reader["ExpirationDate"]),
-                        IssueReason = (string)reader["IssueReason"],
-                        Notes = (string)reader["Note"],
+                        IssueReason = ((Byte)reader["IssueReason"]).ToString(),
+                        Notes = (string)reader["Notes"],
                         IsActive = (string)reader["IsActive"],
                         DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                         DriverID = (int)reader["DriverID"]
@@ -408,8 +409,8 @@ namespace DVLD_DataAccessLayer.Repositories
                         Gender = (string)reader["Gendor"],
                         ImagePath = (string)reader["ImagePath"],
                         ExpirationDate = Convert.ToDateTime(reader["ExpirationDate"]),
-                        IssueReason = (string)reader["IssueReason"],
-                        Notes = (string)reader["Note"],
+                        IssueReason = ((Byte)reader["IssueReason"]).ToString(),
+                        Notes = (string)reader["Notes"],
                         IsActive = (string)reader["IsActive"],
                         DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                         DriverID = (int)reader["DriverID"]
@@ -446,8 +447,8 @@ namespace DVLD_DataAccessLayer.Repositories
                         Gender = (string)reader["Gendor"],
                         ImagePath = (string)reader["ImagePath"],
                         ExpirationDate = Convert.ToDateTime(reader["ExpirationDate"]),
-                        IssueReason = (string)reader["IssueReason"],
-                        Notes = (string)reader["Note"],
+                        IssueReason = ((Byte)reader["IssueReason"]).ToString(),
+                        Notes = (string)reader["Notes"],
                         IsActive = (string)reader["IsActive"],
                         DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                         DriverID = (int)reader["DriverID"]
